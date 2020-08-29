@@ -28,9 +28,15 @@
     </profiles>
 
     <dependencies>
+<!--        orizoume ta paketa pou exoume dhmiourghsei gia ta service k tous controller-->
         <dependency>
             <groupId>gr.publicsoft.springbootcrud</groupId>
             <artifactId>springbootcrud-service</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>gr.publicsoft.springbootcrud</groupId>
+            <artifactId>springbootcrud-controller</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
 

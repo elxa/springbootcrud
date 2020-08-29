@@ -24,6 +24,9 @@
         <module>springbootcrud-domain</module>
         <module>springbootcrud-service</module>
         <module>springbootcrud-webapp</module>
+        <module>springbootcrud-controller</module>
+        <module>springbootcrud-exception</module>
+        <module>springbootcrud-validators</module>
     </modules>
 
     <build>

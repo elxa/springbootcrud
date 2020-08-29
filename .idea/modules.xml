@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/springbootcrud.iml" filepath="$PROJECT_DIR$/.idea/springbootcrud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springbootcrud-controller/springbootcrud-controller.iml" filepath="$PROJECT_DIR$/springbootcrud-controller/springbootcrud-controller.iml" />
       <module fileurl="file://$PROJECT_DIR$/springbootcrud-domain/springbootcrud-domain.iml" filepath="$PROJECT_DIR$/springbootcrud-domain/springbootcrud-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springbootcrud-exception/springbootcrud-exception.iml" filepath="$PROJECT_DIR$/springbootcrud-exception/springbootcrud-exception.iml" />
       <module fileurl="file://$PROJECT_DIR$/springbootcrud-service/springbootcrud-service.iml" filepath="$PROJECT_DIR$/springbootcrud-service/springbootcrud-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springbootcrud-validators/springbootcrud-validators.iml" filepath="$PROJECT_DIR$/springbootcrud-validators/springbootcrud-validators.iml" />
       <module fileurl="file://$PROJECT_DIR$/springbootcrud-webapp/springbootcrud-webapp.iml" filepath="$PROJECT_DIR$/springbootcrud-webapp/springbootcrud-webapp.iml" />
     </modules>
   </component>
