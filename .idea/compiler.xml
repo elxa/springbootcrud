@@ -12,6 +12,7 @@
         <module name="springbootcrud-service" />
         <module name="springbootcrud-domain" />
         <module name="springbootcrud-webapp" />
+        <module name="springbootcrud-validator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +21,7 @@
       <module name="springbootcrud-domain" target="1.8" />
       <module name="springbootcrud-exception" target="1.8" />
       <module name="springbootcrud-service" target="1.8" />
+      <module name="springbootcrud-validator" target="1.8" />
       <module name="springbootcrud-validators" target="1.8" />
       <module name="springbootcrud-webapp" target="1.8" />
     </bytecodeTargetLevel>
@@ -30,6 +32,7 @@
       <module name="springbootcrud-domain" options="-parameters" />
       <module name="springbootcrud-exception" options="-parameters" />
       <module name="springbootcrud-service" options="-parameters" />
+      <module name="springbootcrud-validator" options="-parameters" />
       <module name="springbootcrud-validators" options="-parameters" />
       <module name="springbootcrud-webapp" options="-parameters" />
     </option>
