@@ -22,7 +22,8 @@ public class Person {
     private Boolean isActive;
 
     @NotBlank(message = "Name is mandatory")
-    @Size(max = SIZE_M)
+//    @Size(max = SIZE_M)
+    @Size(min=2, max = SIZE_M, message = "min 2")
     @Column(nullable = false)
     private String name;
 

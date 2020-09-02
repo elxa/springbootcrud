@@ -25,7 +25,6 @@
         <module>springbootcrud-service</module>
         <module>springbootcrud-webapp</module>
         <module>springbootcrud-controller</module>
-        <module>springbootcrud-exception</module>
     </modules>
 
     <build>

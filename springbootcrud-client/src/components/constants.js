@@ -1,5 +1,6 @@
 export default {
   sizes: {
+    SIZE_XXXS: 3,
     SIZE_XXS: 10,
     SIZE_XS: 20,
     SIZE_S: 50,

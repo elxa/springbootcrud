@@ -1,20 +1,22 @@
 package gr.publicsoft.springbootcrud.services;
 
-import gr.publicsoft.springbootcrud.exception.FieldSizeException;
-import gr.publicsoft.springbootcrud.exception.SupplierNotFoundException;
-import gr.publicsoft.springbootcrud.exception.SupplierNotValidFields;
+import gr.publicsoft.springbootcrud.exception.*;
 import gr.publicsoft.springbootcrud.model.Supplier;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
 public interface SupplierService {
-    List<Supplier> supplierList();
+    Page<Supplier> supplierList(int pageNumber,String query);
 
-    Supplier addSupplier(Supplier supplier) throws SupplierNotFoundException, SupplierNotValidFields, FieldSizeException;
+    Supplier getSupplierById(long supplierId) throws ObjectNotFoundException;
 
-    Supplier updateSupplier(Supplier suppler, long supplierId) throws SupplierNotFoundException, SupplierNotValidFields, FieldSizeException;
+    Supplier addSupplier(Supplier supplier) throws ObjectNotFoundException, VatNumberException;
 
-    boolean deleteSupplier(long supplierId) throws SupplierNotFoundException;
+    Supplier updateSupplier(Supplier suppler, long supplierId) throws ObjectNotFoundException, VatNumberException;
 
-    void checkSupplier(Supplier supplier) throws SupplierNotValidFields, SupplierNotFoundException, FieldSizeException;
+    boolean deleteSupplier(long supplierId) throws ObjectNotFoundException;
+
+    boolean checkIfExistVatNumber(String vatNumber);
+
 }
