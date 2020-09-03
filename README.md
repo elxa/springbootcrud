@@ -49,5 +49,15 @@ modify the following properties, depending on your MySQL installation:
   - spring.datasource.username=root
   - spring.datasource.password=”your password”
   - Run the Application.class
+  
+* **Finally, check your application:**
+  - You can make use of Swagger when running your application:
+  - Type in your browser this url http://localhost:8080/swagger-ui.html
+    - For example, If you want to add a supplier to the database, follow the steps: supplier-controller→ post → try it out→ configure the json file → execute. If the data has successfully been saved in the database, the response will be ‘200’ with the description ‘ok’ and the supplier you have created. If not, then a ‘400’ followed by a description of the error will ensue.
+    - If you choose to get all the suppliers from the database, follow the steps: supplier-controller → get → try it out → execute.
+    - if you want to search by Company name or VAT number :supplier-controller→ get → try it out → put in the input the corresponding data.
+
+Similar steps are to be followed for the rest controllers. 
+
 
 
