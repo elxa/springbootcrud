@@ -6,7 +6,7 @@ The following project is a back-end (i.e. Rest Api project) as well as a front-e
 
 ### Back-End:
 
-The database includes **Supplier** entities containing the following fields:
+1. The database includes **Supplier** entities containing the following fields:
 * Company name
 * First name
 * Last name
@@ -20,10 +20,10 @@ The database includes **Supplier** entities containing the following fields:
   - Company name
   - VAT number
 
-The database also includes **Product** entities containing the following fields:
-* Product name
-* Type
-* Barcode
-- There is a CRUD + Search REST API, able to handle Product entities and searches by:
-  - Product name
-  - Barcode
+2. The database also includes **Product** entities containing the following fields:
+    * Product name
+    * Type
+    * Barcode
+    - There is a CRUD + Search REST API, able to handle Product entities and searches by:
+      - Product name
+      - Barcode
