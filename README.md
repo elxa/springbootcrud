@@ -43,4 +43,4 @@ Initially it is necessary to have installed the following requirements:
 * Node.js 6.x
 
 ### Back-End:
-
+- Create an empty database with name: springbootcrud
