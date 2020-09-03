@@ -16,7 +16,14 @@ The database includes **Supplier** entities containing the following fields:
 * ZIP code
 * City
 * Country
-- There is a CRUD + Search REST API, able to handle Supplier entities
-- searches by:
+- There is a CRUD + Search REST API, able to handle Supplier entities and searches by:
   - Company name
   - VAT number
+
+The database also includes **Product** entities containing the following fields:
+* Product name
+* Type
+* Barcode
+- There is a CRUD + Search REST API, able to handle Product entities and searches by:
+  - Product name
+  - Barcode
