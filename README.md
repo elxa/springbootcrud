@@ -35,3 +35,12 @@ The following project is a back-end (i.e. Rest Api project) as well as a front-e
 Implemention of the matching CRUD + Search screen(s) for the REST API defined above.
 
 # Instructions
+Initially it is necessary to have installed the following requirements:
+* OpenJDK 1.8
+* Maven 3.x
+* Git 2.x
+* MySQL 5.x
+* Node.js 6.x
+
+### Back-End:
+
