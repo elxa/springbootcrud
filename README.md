@@ -43,4 +43,17 @@ Initially it is necessary to have installed the following requirements:
 * Node.js 6.x
 
 ### Back-End:
-- Create an empty database with name: springbootcrud
+* Create an empty database with name: springbootcrud
+* If you want to include some data in the database you need to run these queries: 
+  - insert into supplier values(null, "ethnarxou", "athens", "publicsoft", "greece", "elenh”, "dd", "papadopoulou", "ddd", "10443");
+   - insert into supplier values(null, "sepolia", "athens", "accenture", "greece", "giorgos", "dd", "gewrgiou", "hhh12", "10443");
+    - insert into supplier values(null, "paiania", "athens", "intralot", "greece", "stelios", "dd", "steliou", "kiki", "10443");
+    - insert into supplier values(null, "hlioupolh", "athens", "publicsoft", "greece", "xrhstos", "dd", "xrhstou", "dw121", "10443");
+    - insert into person values(null,"dddde", "ggg@gmai.com", "MALE", 0, "6937861214", "jim");
+    - insert into product values(null, "12sde", "fer", "pen");
+    - insert into product values(null, "342sde", "20000 leuges katw apo th 8alassa", "book");
+    - insert into product values(null, "12345", "h panagia twn parisiwn", "book");
+    - insert into supplierproduct values(null, 1,1);
+    - insert into supplierproduct values(null, 1,2);
+    - insert into supplierproduct values(null, 2,1); 
+
