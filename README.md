@@ -4,7 +4,8 @@ The following project is a back-end (i.e. Rest Api project) as well as a front-e
 
 # Structure
 
-##Back-End:
+###Back-End:
+
 The database includes Supplier entities containing the following fields:
 * Company name
 * First name
