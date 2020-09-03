@@ -57,7 +57,11 @@ modify the following properties, depending on your MySQL installation:
     - If you choose to get all the suppliers from the database, follow the steps: supplier-controller → get → try it out → execute.
     - if you want to search by Company name or VAT number :supplier-controller→ get → try it out → put in the input the corresponding data.
 
-Similar steps are to be followed for the rest controllers. 
+  Similar steps are to be followed for the rest controllers. 
 
+### Client Application:
+- It is important to make sure that you are in the springbootcrud-client folder and execute the following:command: npm install
+-  When the installation will have finished, you can run the Client with the command: npm run dev
+- You can now visit http://localhost:9000 to see the page
 
 
