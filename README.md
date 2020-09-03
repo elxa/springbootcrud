@@ -46,8 +46,8 @@ Initially it is necessary to have installed the following requirements:
 * Create an empty database with name: springbootcrud
 * Later, open the file: springbootcrud-webapp/src/main/resources/application.properties and
 modify the following properties, depending on your MySQL installation:
- - spring.datasource.username=root
- - spring.datasource.password=”your password”
- - Run the Application.class
+  - spring.datasource.username=root
+  - spring.datasource.password=”your password”
+  - Run the Application.class
 
 
