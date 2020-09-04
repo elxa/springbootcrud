@@ -29,7 +29,7 @@ The following project is a back-end (i.e. Rest Api project) as well as a front-e
     - Barcode
 
 3. The database finally runs a matching between the Supplier and Product entities
--There is the 
+-Add the relation between Supplier and Product and search by Barcode
 
 ### Front-End:
 Implemention of the matching CRUD + Search screen(s) for the REST API defined above.
