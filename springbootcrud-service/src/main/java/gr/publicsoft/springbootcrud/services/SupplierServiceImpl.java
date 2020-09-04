@@ -1,6 +1,5 @@
 package gr.publicsoft.springbootcrud.services;
 
-import gr.publicsoft.springbootcrud.Constants;
 import gr.publicsoft.springbootcrud.exception.*;
 import gr.publicsoft.springbootcrud.model.Supplier;
 import gr.publicsoft.springbootcrud.repository.SupplierRepository;
@@ -9,9 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,21 +17,24 @@ public class SupplierServiceImpl implements SupplierService{
     @Autowired
     SupplierRepository supplierRepo;
 
+    /**
+     * A list of suppliers
+     *
+     * @param pageNumber
+     * @param query
+     * @return a list of suppliers
+     * @throws NotValidNumberInPageNumber
+     */
     @Override
-    public Page<Supplier> supplierList(int pageNumber, String query) {
-        Pageable pageable = PageRequest.of(pageNumber-1, 6); //prwth selida einai h 0 me 6 element
+    public Page<Supplier> supplierList(int pageNumber, String query) throws NotValidNumberInPageNumber {
+        if(pageNumber <= 0){
+            throw new NotValidNumberInPageNumber("Page number mustn't be 0, or negative number");
+        }
+        Pageable pageable = PageRequest.of(pageNumber-1, 10); //prwth selida einai h 0 me 10 element
         if(query != null){
             return supplierRepo.findByQuery(query,pageable);
         }
         return supplierRepo.findAll(pageable);
-    }
-
-    @Override
-    public Supplier getSupplierById(long supplierId) throws ObjectNotFoundException {
-        Optional<Supplier> oSupplier = supplierRepo.findById(supplierId);
-        if (oSupplier.isPresent()) {
-            return oSupplier.get();
-        } else throw new ObjectNotFoundException("Supplier not found");
     }
 
     /**
@@ -42,12 +42,12 @@ public class SupplierServiceImpl implements SupplierService{
      *
      * @param supplier
      * @return the supplier which added in database
-     * @throws VatNumberException
+     * @throws ExistUniqueValueException
      */
     @Override
-    public Supplier addSupplier(Supplier supplier) throws VatNumberException {
+    public Supplier addSupplier(Supplier supplier) throws ExistUniqueValueException {
         if(checkIfExistVatNumber(supplier.getVatNumber())==true){
-            throw new VatNumberException("This vatNumber Already exists");
+            throw new ExistUniqueValueException("This vatNumber Already exists");
         }
         return supplierRepo.save(supplier);
     }
@@ -59,15 +59,15 @@ public class SupplierServiceImpl implements SupplierService{
      * @param supplierId
      * @return the supplier which updated
      * @throws ObjectNotFoundException
-     * @throws VatNumberException
+     * @throws ExistUniqueValueException
      */
     @Override
-    public Supplier updateSupplier(Supplier supplier, long supplierId) throws ObjectNotFoundException, VatNumberException {
+    public Supplier updateSupplier(Supplier supplier, long supplierId) throws ObjectNotFoundException, ExistUniqueValueException {
         Supplier supplierInDb = supplierRepo.findById(supplierId)
                 .orElseThrow(() -> new ObjectNotFoundException("Supplier not found"));
 
         if(checkIfExistVatNumber(supplier.getVatNumber())==true){
-            throw new VatNumberException("This vatNumber Already exists");
+            throw new ExistUniqueValueException("This vatNumber Already exists");
         }
         supplierInDb.setCompanyName(supplier.getCompanyName());
         supplierInDb.setFirstName(supplier.getFirstName());
@@ -100,6 +100,12 @@ public class SupplierServiceImpl implements SupplierService{
         } else throw new ObjectNotFoundException("Supplier Not Found");
     }
 
+    /**
+     * Check if vatNumber already exists in the db
+     *
+     * @param vatNumber
+     * @return true if vatNumber already exists
+     */
     @Override
     public boolean checkIfExistVatNumber(String vatNumber) {
         if(supplierRepo.findByVatNumber(vatNumber) != null ){
@@ -107,59 +113,4 @@ public class SupplierServiceImpl implements SupplierService{
         }
         return false;
     }
-
-
-
-
-
-//    /**
-//     * Check the supplier properties
-//     *
-//     * @param supplier
-//     * @throws SupplierNotValidFields
-//     * @throws ObjectNotFoundException
-//     * @throws FieldSizeException
-//     */
-//    @Override
-//    public void checkSupplier(Supplier supplier) throws SupplierNotValidFields, ObjectNotFoundException, FieldSizeException, NotCharactersFields, NotNumercsFields {
-//        if (supplier == null) {
-//            throw new ObjectNotFoundException("Supplier Not found");
-//        }
-//        if (StringUtils.isEmpty(supplier.getCompanyName())
-//                || StringUtils.isEmpty(supplier.getFirstName())
-//                || StringUtils.isEmpty(supplier.getLastName())
-//                || StringUtils.isEmpty(supplier.getVatNumber())
-//                || StringUtils.isEmpty(supplier.getZipCode())
-//                || StringUtils.isEmpty(supplier.getCity())
-//                || StringUtils.isEmpty(supplier.getCountry())) {
-//            throw new SupplierNotValidFields("Supplier field not be null or empty");
-//        }
-//        if (supplier.getAddress() == null
-//                ||supplier.getIrsOffice() == null) {
-//            throw new SupplierNotValidFields("Supplier field not be null");
-//        }
-//        if (supplier.getCompanyName().length() > Constants.SIZE_M
-//                || supplier.getFirstName().length() > Constants.SIZE_M
-//                || supplier.getLastName().length() > Constants.SIZE_M
-//                || supplier.getVatNumber().length() > Constants.SIZE_M
-//                || supplier.getIrsOffice().length() > Constants.SIZE_M
-//                || supplier.getAddress().length() > Constants.SIZE_M
-//                || supplier.getZipCode().length() > Constants.SIZE_M
-//                || supplier.getCity().length() > Constants.SIZE_M
-//                || supplier.getCountry().length() > Constants.SIZE_M) {
-//            throw new FieldSizeException("Not valid size");
-//        }
-//        if (isStringOnlyAlphabet(supplier.getCompanyName()) == false
-//                || isStringOnlyAlphabet(supplier.getFirstName()) == false
-//                || isStringOnlyAlphabet(supplier.getLastName()) == false
-//                || isStringOnlyAlphabet(supplier.getCity()) == false
-//                || isStringOnlyAlphabet(supplier.getCountry()) == false) {
-//            throw new NotCharactersFields("Required only characters");
-//        }
-//        if (isStringOnlyNumer(supplier.getZipCode())== false
-//                || isStringOnlyNumer(supplier.getVatNumber())== false) {
-//            throw new NotNumercsFields("Required only numbers");
-//        }
-//    }
-
 }

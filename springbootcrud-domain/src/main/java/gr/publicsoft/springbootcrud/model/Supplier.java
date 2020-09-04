@@ -1,13 +1,18 @@
 package gr.publicsoft.springbootcrud.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import java.util.List;
 
 import static gr.publicsoft.springbootcrud.Constants.SIZE_M;
 
@@ -24,8 +29,8 @@ public class Supplier {
     private long id;
 
     @NotBlank(message = "companyName is mandatory")
-    @Pattern(regexp="^[a-zA-Z]+$")
-    @Size(min=2, max = SIZE_M, message = "min 2" )
+    @Pattern(regexp="^[a-zA-Z]+$", message = "Company Name only characters")
+    @Size(min=3, max = SIZE_M, message = "min 2" )
     @Column(nullable = false)
     private String companyName;
 
@@ -49,6 +54,7 @@ public class Supplier {
     @Size(max = SIZE_M)
     private String address;
 
+   @NotNull(message = "Zip cade not null")
     @Pattern(regexp="^[0-9]*$",message = "ZIP Code must be only numbers")
     @Size(max = SIZE_M)
     private String zipCode;
@@ -60,5 +66,9 @@ public class Supplier {
     @Pattern(regexp="^[a-zA-Z]+$", message = "Country characters")
     @Size(max = SIZE_M)
     private String country;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "supplier")
+    private List<SupplierProduct> supplierProducts;
 
 }

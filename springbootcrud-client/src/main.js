@@ -61,6 +61,9 @@ Vue.mixin({
     },
     getSuppliers () {
       return this.$http.get('suppliers?size=1000')
+    },
+    getProducts () {
+      return this.$http.get('products?size=1000')
     }
   }
 })

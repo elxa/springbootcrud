@@ -7,6 +7,7 @@ import Dashboard from '@/containers/Dashboard'
 import HelloWorld from '@/components/HelloWorld'
 import Persons from '@/components/Persons'
 import Suppliers from '@/components/Suppliers'
+import Products from '@/components/Products'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
           path: 'suppliers',
           name: 'Suppliers',
           component: Suppliers
+        },
+        {
+          path: 'products',
+          name: 'Products',
+          component: Products
         }
       ]
     }
